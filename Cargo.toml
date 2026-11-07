@@ -1,0 +1,33 @@
+[package]
+name = "jcode-rpc-for-codex"
+version = "0.2.1"
+edition = "2024"
+rust-version = "1.85"
+description = "Rust RPC client and MCP server (stdio + Streamable HTTP + Cloudflare Tunnel) for operating local or remote jcode workspaces."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/bridge-for-codex/jcode-rpc-for-codex"
+homepage = "https://github.com/bridge-for-codex/jcode-rpc-for-codex"
+keywords = ["jcode", "mcp", "codex", "rpc", "cloudflare-tunnel"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "jcode-mcp"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+axum = { version = "0.8", features = ["json", "form", "query"] }
+base64 = "0.22"
+clap = { version = "4.5", features = ["derive", "env"] }
+rand = "0.9"
+regex = "1.11"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+subtle = "2.6"
+thiserror = "2.0"
+tokio = { version = "1.43", features = ["full"] }
+
+[dev-dependencies]
+tempfile = "3.16"
